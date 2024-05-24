@@ -1,27 +1,18 @@
+// HomePage.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-green-200 flex items-center justify-center">
-      <div className="bg-white rounded-lg p-8 shadow-md">
-        <div className="flex justify-center mb-6">
-          <Link
-            to="/feedback/anonymous"
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4"
-          >
-            Anonymous
-          </Link>
-          <Link
-            to="/feedback/public"
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Public Opinion
-          </Link>
-        </div>
-        {/* Add additional content or components here */}
-      </div>
-    </div>
+    <motion.div
+      className="p-4"
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <h1 className="text-3xl font-bold">Welcome to the Home Page</h1>
+      <p>This is the home page content.</p>
+    </motion.div>
   );
 };
 

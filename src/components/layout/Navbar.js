@@ -1,34 +1,29 @@
+// Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-800 py-4">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <div className="flex space-x-4">
-            <Link
-              to="/fcat"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              FCAT
-            </Link>
-            <Link
-              to="/medical"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              MEDICAL
-            </Link>
-          </div>
-          <Link
-            to="/feedback"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-          >
-            FeedBack
-          </Link>
-        </div>
-      </div>
-    </nav>
+    <motion.nav
+      className="bg-gray-800 text-white p-4"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: 'spring', stiffness: 100 }}
+    >
+      <ul className="flex space-x-4">
+        <li>
+          <Link to="/" className="hover:text-gray-400">Home</Link>
+        </li>
+        <li>
+          <Link to="/feedback/anonymous" className="hover:text-gray-400">Anonymous Feedback</Link>
+        </li>
+        <li>
+          <Link to="/feedback/public" className="hover:text-gray-400">Public Feedback</Link>
+        </li>
+        {/* Add more links as needed */}
+      </ul>
+    </motion.nav>
   );
 };
 
